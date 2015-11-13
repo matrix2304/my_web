@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+
+    <f:view contentType="text/html">
+        <h:head>
+            <f:facet name="first">
+                <meta content='text/html; charset=UTF-8' http-equiv="Content-Type"/>
+                <title>PrimeFaces</title>
+            </f:facet>
+        </h:head>
+
+        <h:body>
+            
+            <h:form id="formulario"> 
+                <p:menubar>
+                <p:submenu label="Clientes">
+                    <p:menuitem value="Lista Clientes" />
+                    <p:menuitem value="Nuevo Cliente"/>
+                </p:submenu>
+                
+                <p:submenu label="Proveedores">
+                    <p:menuitem  value="Lista Proveedor"/>
+                    <p:menuitem  value="Nuevo Proveedor"/>
+                </p:submenu>
+                
+                <p:submenu label="Producto">
+                    <p:menuitem  value="inventario"/>
+                    <p:menuitem  value="Nuevo Producto"/>
+                </p:submenu>
+                
+                <p:submenu label="Pedidos">
+                    <p:menuitem  value="pedidos"/>
+                </p:submenu>
+                
+            </p:menubar>
+            
+            <p:spacer height="10" />  
+            
+               
+                <p:panel id="panel" header="Nuevo Cliente">  
+        
+                   
+                    <p:messages />  
+          
+                    <h:panelGrid columns="1" id="matchGrid">                     
+            
+                        <h:outputLabel for="nombre" value="Nombre: " />  
+
+                        <p:inputText id="nombre" value="#{BeanCliente.nombre}" required="true"/>
+
+                    </h:panelGrid>  
+
+                    <p:commandButton id="saveButton" update="panel" actionListener="#{BeanCliente.Registrar(actionEvent)}" value="Registrar"/>  
+                    
+
+                </p:panel> 
+        
+            </h:form>
+
+        </h:body>
+    </f:view>
+</html>
